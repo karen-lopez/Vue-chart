@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-    <p>
-      <router-link to="/" class="text-dark">Home</router-link>
-      <router-link to="/Chart" class="text-dark">Chart</router-link>
-    </p>
+    <h3>Graficas de datos.</h3>
+    <br>
     <router-view></router-view>
   </div>
 </template>

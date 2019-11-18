@@ -1,6 +1,8 @@
 <template>
   <!-- Google login button -->
   <div class="container text-center p-4">
+    <h2>Bienvenido al Sistema de Consulta</h2>
+    <br>
     <b-form-group>
       <b-button class="g-signin2" type="submit" variant="danger" @click="ggSignIn" style="min-width: 15rem;">
         <div />Continue with Google
@@ -30,7 +32,7 @@ export default {
             console.log('Name: ' + profile.getName());
             console.log('Image URL: ' + profile.getImageUrl());
             console.log('Email: ' + profile.getEmail());*/
-            alert("ok!"+ " "+ profile.getName());
+            alert("Bienvenid@!"+ " "+ profile.getName());
           },
           function(error) {
             /*console.log("Something went wrong!");

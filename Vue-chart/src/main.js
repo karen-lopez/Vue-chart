@@ -8,6 +8,9 @@ import * as VueGoogleMaps from "vue2-google-maps";
 import "./plugins/allauth";
 import vueRouter from 'vue-router';
 import routes from "./routes.js";
+import axiosVue from 'axios-vue';
+
+Vue.use(axiosVue)
 
 Vue.use(vueRouter);
 
