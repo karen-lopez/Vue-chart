@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <h1>Graficas de Registro de matriculas Colombia</h1>
-    <Charts/>
+    <p>
+      <router-link to="/" class="text-dark">Home</router-link>
+      <router-link to="/Chart" class="text-dark">Chart</router-link>
+    </p>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Charts from './components/Charts.vue'
-
 export default {
   name: 'app',
   components: {
-    Charts
   }
 }
 </script>

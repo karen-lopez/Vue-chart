@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Graficas de Registro de matriculas Colombia</h1>
     <b-col sm="6" class="mx-auto">
       <b-form-select v-model="selected" :options="options"></b-form-select>
     </b-col>
