@@ -1,7 +1,13 @@
 <template>
   <div>
-    <b-button  type="button" @click="start()">click me!</b-button>
+    <b-col sm="6" class="mx-auto">
+      <b-form-select v-model="selected" :options="options"></b-form-select>
+    </b-col>
+    <br>
+    <b-button  type="button" @click="start()">Mostrar</b-button>
+    <br>
     <div class="chart-wrapper" v-if="datax.length > 2">
+      <br>
       <chart :options="chartOptionsBar"></chart>
     </div>
   </div>
@@ -13,28 +19,38 @@ export default {
   name: 'Charts',
   data: () => ({
     dataEnrollments : JSON.stringify(dataEnrollment),
-    datax : ["q1", "q2"],
-    datay : [23, 29],
+    selected: null,
+    options: [
+     { value: null, text: 'Seleccione una opción' },
+     { value: 'TECNOLOGICA', text: 'Matriculas Tecnologias' },
+     { value: 'UNIVERSITARIA', text: 'Matriculas Universitarias' },
+     { value: 'ESPECIALIZACION', text: 'Matriculas a Especializaciones' },
+     { value: 'MAESTRIA', text: 'Matriculas de Maestria' },
+     { value: 'DOCTORADO', text: 'Matriculas Doctorados' }
+    ],
+    datax : [],
+    datay : [],
     chartOptionsBar: {}
   }),
   methods:{
     start(){
       var dataMap = new Map();
       var year = null;
-      var universitaria = null;
+      var option = null;
+      var selected = this.selected;
       JSON.parse(this.dataEnrollments, function (k, v) {
         if(k == "year") year = v;
-        if(k == "UNIVERSITARIA") universitaria = v;
-        if(year != null && universitaria != null){
+        if(k == selected) option = v;
+        if(year != null && option != null){
           if(!dataMap.has(year)){
-            dataMap.set(year, universitaria);
+            dataMap.set(year, option);
           }
           else {
-            let totalEnrolled = dataMap.get(year)+universitaria;
+            let totalEnrolled = dataMap.get(year)+option;
             dataMap.set(year, totalEnrolled);
           }
           year = null;
-          universitaria = null;
+          option = null;
         }
       });
       let arrayKeys = new Array();
@@ -57,7 +73,7 @@ export default {
           }
         ],
         title: {
-          text: 'Matriculas Universitarias',
+          text: 'MATRICULAS' + " "+ selected,
           x: 'center',
           textStyle: {
             fontSize: 24
