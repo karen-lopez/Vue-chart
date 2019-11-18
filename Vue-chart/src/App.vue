@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <h1>Vue eCharts</h1>
-    <HelloWorld/>
+    <h1>Graficas de Registro de matriculas Colombia</h1>
+    <Charts/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Charts from './components/Charts.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Charts
   }
 }
 </script>
